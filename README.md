@@ -1,5 +1,3 @@
-:
-
 🚀 Indiscript – Code in Kannada & Sanskrit 🇮🇳📜
 Welcome to Indiscript, a programming language that allows you to write code in Kannada and Sanskrit! 🌟
 

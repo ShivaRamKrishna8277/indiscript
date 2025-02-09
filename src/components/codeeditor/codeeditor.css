@@ -1,0 +1,52 @@
+#editorWrapper {
+    background-color: white;
+    padding: 20px;
+}
+
+#langBtnContainer {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        letter-spacing: .5px;
+    }
+    
+    .activeLanguage{
+        background-color: #0E7500;
+        color: white;
+    }
+}
+#runButton{
+    background-color: #0E7500;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.codeEditor{
+    width: 100%;
+    resize: none;
+    background-color: #1e1e1e;
+    border: none;
+    border-radius: 10px 10px 0 0;
+    min-height: 400px;
+    padding: 20px;
+    color: white;
+    font-size: 17px;
+    line-height: 30px;
+}
+#outputBox{
+    width: 100%;
+    min-height: 100px;
+    background-color: #1e1e1e;
+    padding: 15px 25px;
+    border-radius: 0 0 10px 10px;
+    color: white;
+}

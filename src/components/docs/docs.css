@@ -1,0 +1,46 @@
+#docsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.table-container {
+    width: 100%;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: #2d2d2d;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+tr:hover {
+    background: #ddd;
+}

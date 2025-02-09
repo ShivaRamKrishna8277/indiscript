@@ -7,8 +7,8 @@ function lexer(input, language) {
   const tokens = [];
   let cursor = 0;
 
-  const isAlphaNum = (char) => /[a-zA-Z0-9_]/.test(char);
-  const isOperator = (char) => /[\+\-\*\%\/=<>!]/.test(char);
+  const isAlphaNum = (char) => /[a-zA-Z0-9_]/.test(char); // No change needed
+  const isOperator = (char) => /[+\-*%/=<>\!]/.test(char); // Fixed unnecessary escapes
   const isWhitespace = (char) => /\s/.test(char);
 
   while (cursor < input.length) {
@@ -111,10 +111,18 @@ function parser(tokens, keywords) {
       };
 
       // Check for assignment
-      if (tokens.length > 0 && tokens[0].type === "operator" && tokens[0].value === "=") {
+      if (
+        tokens.length > 0 &&
+        tokens[0].type === "operator" &&
+        tokens[0].value === "="
+      ) {
         tokens.shift(); // Consume '='
         let expression = "";
-        while (tokens.length > 0 && tokens[0].type !== "keyword" && tokens[0].value !== "}") {
+        while (
+          tokens.length > 0 &&
+          tokens[0].type !== "keyword" &&
+          tokens[0].value !== "}"
+        ) {
           expression += tokens.shift().value;
         }
         declaration.value = expression.trim();
@@ -148,7 +156,10 @@ function parser(tokens, keywords) {
       tokens.shift(); // Consume '('
 
       let condition = "";
-      while (tokens.length > 0 && (tokens[0].type !== "paren" || tokens[0].value !== ")")) {
+      while (
+        tokens.length > 0 &&
+        (tokens[0].type !== "paren" || tokens[0].value !== ")")
+      ) {
         condition += tokens.shift().value;
       }
       if (tokens.length === 0 || tokens[0].value !== ")") {
@@ -172,7 +183,11 @@ function parser(tokens, keywords) {
 
       // Check for else (illadiddare)
       let elseBody = null;
-      if (tokens.length > 0 && tokens[0].type === "keyword" && tokens[0].value === keywords[3]) {
+      if (
+        tokens.length > 0 &&
+        tokens[0].type === "keyword" &&
+        tokens[0].value === keywords[3]
+      ) {
         tokens.shift(); // Consume 'illadiddare'
         if (tokens.length === 0 || tokens[0].value !== "{") {
           throw new Error("Expected '{' after 'illadiddare'");
